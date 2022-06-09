@@ -1,0 +1,65 @@
+{% extends "news/base.html" %}
+{% block content %}
+<h1> India news </h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="content-section">
+      <p class='text-muted'>Search Category
+        
+        {% if request.user.is_authenticated %}
+        
+        <a href="?category=all" class="list-group-item list-group-item-light" type="submit" value="search">All</a>
+        <a href="/" class="list-group-item list-group-item-light" type="submit" value="search">Selected</a>
+        {% if "business" in request.user.profile.category %}
+        <a href="?category=business" class="list-group-item list-group-item-light" type="submit" value="search">Bussiness</a> 
+        {% endif %}
+        {% if "entertainment" in request.user.profile.category %}
+        <a href="?category=entertainment" class="list-group-item list-group-item-light" type="submit" value="search">Entertainment</a>
+        {% endif %}
+        {% if "general" in request.user.profile.category %}
+        <a href="?category=general" class="list-group-item list-group-item-light" type="submit" value="search">General</a>
+        {% endif %}
+        {% if "health" in request.user.profile.category %}
+        <a href="?category=health" class="list-group-item list-group-item-light" type="submit" value="search">Health</a>
+        {% endif %}
+        {% if "science" in request.user.profile.category %}
+        <a href="?category=science" class="list-group-item list-group-item-light" type="submit" value="search">Science</a>
+        {% endif %}
+        {% if "sports" in request.user.profile.category %}
+        <a href="?category=sports" class="list-group-item list-group-item-light" type="submit" value="search">Sports</a>
+        {% endif %}
+        {% if "technology" in request.user.profile.category %}
+        <a href="?category=technology" class="list-group-item list-group-item-light" type="submit" value="search">Technology</a> 
+        {% endif %}
+        
+        {% else %}
+        <a href="?category=business" class="list-group-item list-group-item-light" type="submit" value="search">Bussiness</a>
+        <a href="?category=entertainment" class="list-group-item list-group-item-light" type="submit" value="search">Entertainment</a>
+        <a href="?category=general" class="list-group-item list-group-item-light" type="submit" value="search">General</a>
+        <a href="?category=health" class="list-group-item list-group-item-light" type="submit" value="search">Health</a>
+        <a href="?category=science" class="list-group-item list-group-item-light" type="submit" value="search">Science</a>
+        <a href="?category=sports" class="list-group-item list-group-item-light" type="submit" value="search">Sports</a>
+        <a href="?category=technology" class="list-group-item list-group-item-light" type="submit" value="search">Technology</a>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</div>
+<article class="media content-section">
+
+  <div class="media-body">
+    {% for i in articles %}
+    <img src="{{ i.urlToImage }}" alt="" height="200px" width="200px">
+    <p class="article-content">Author: {{ i.author }}</p>
+    <p class="article-content">Title: {{ i.title }}</p>
+    <p class="article-content">Source: {{ i.source }}</p>
+    <p class="article-content">Description: {{ i.description }}</p>
+    <p class="article-content">Date: {{ i.publishedAt }}</p>
+    <p class="article-content">Content: {{ i.content }}</p>
+    <p class="article-content"><a href="{{ i.url }}" target="blank">See whole article</a></p>
+    {% endfor %}
+  </div>
+
+</article>
+
+{% endblock content %}
