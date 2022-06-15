@@ -89,7 +89,6 @@ SQLAlchemy==1.4.32
 sqlparse==0.4.2
 ssh-import-id==5.10
 typing_extensions==4.1.1
-ubuntu-advantage-tools==27.7
 ufw==0.36
 urllib3==1.25.8
 virtualenv==20.13.1
