@@ -75,7 +75,6 @@ PyAutoGUI==0.9.53
 pycrypto==2.6.1
 pytest==7.1.1
 pytest-django==4.5.2
-python-apt==2.0.0+ubuntu0.20.4.7
 python-crontab==2.6.0
 python-dateutil==2.7.3
 python-debian===0.1.36ubuntu1
