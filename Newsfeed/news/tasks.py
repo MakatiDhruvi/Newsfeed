@@ -5,11 +5,11 @@ from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 import requests
-from .views import uploadNews, mailmethod
+from .views import upload_news, mailmethod
 
 @shared_task
 def update_news():
-    uploadNews()
+    upload_news()
     # mailmethod()
     
 

@@ -1,7 +1,4 @@
-from email.policy import default
 from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import User
 from users.models import Category
 
 class News(models.Model):

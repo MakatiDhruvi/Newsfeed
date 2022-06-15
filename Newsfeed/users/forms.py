@@ -3,21 +3,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile, Category
 
-class UserRegistrationFrom(UserCreationForm):
+class user_registeration_form(UserCreationForm):
     email = forms.EmailField()
 
     class Meta:
         model = User
         fields = ['username', 'email','password1','password2']
 
-class UserUpdateForm(forms.ModelForm):
+class user_update_form(forms.ModelForm):
     email = forms.EmailField()
 
     class Meta:
         model = User
         fields = ['username', 'email']
 
-class ProfileUpdateForm(forms.ModelForm):
+class profile_update_form(forms.ModelForm):
     OPTIONS = (
         ("business", "business"),
         ("entertainment", "entertainment"),

@@ -2,13 +2,13 @@ from pyexpat.errors import messages
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationFrom, UserUpdateForm, ProfileUpdateForm
+from .forms import user_registeration_form, user_update_form, profile_update_form
 # Create your views here.
 
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationFrom(request.POST)
+        form = user_registeration_form(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -17,15 +17,15 @@ def register(request):
             return redirect('login')
 
     else:
-        form = UserRegistrationFrom()
+        form = user_registeration_form()
         return render(request, 'users/register.html', {'form': form})
 
-
+  
 @login_required
 def profile(request):
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(
+        u_form = user_update_form(request.POST, instance=request.user)
+        p_form = profile_update_form(
             request.POST, request.FILES, instance=request.user.profile)
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
@@ -33,8 +33,8 @@ def profile(request):
             messages.success(request, f'Your account has been updated..!')
             return redirect('profile')
     else:
-        u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile)
+        u_form = user_update_form(instance=request.user)
+        p_form = profile_update_form(instance=request.user.profile)
     context = {
         'u_form': u_form,
         'p_form': p_form
