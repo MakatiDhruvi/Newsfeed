@@ -77,7 +77,6 @@ pytest==7.1.1
 pytest-django==4.5.2
 python-crontab==2.6.0
 python-dateutil==2.7.3
-python-debian===0.1.36ubuntu1
 python-pptx==0.6.21
 python3-xlib==0.15
 pytz==2022.1
@@ -89,7 +88,6 @@ screen-resolution-extra==0.0.0
 SecretStorage==2.3.1
 simplejson==3.16.0
 six==1.14.0
-soupsieve==2.3.2.post1
 SQLAlchemy==1.4.32
 sqlparse==0.4.2
 ssh-import-id==5.10
