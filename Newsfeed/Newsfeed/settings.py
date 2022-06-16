@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Newsfeed.urls'
@@ -84,10 +85,10 @@ DATABASES = {
 
 'default': {
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': 'News',
-'USER': 'postgres',
-'PASSWORD' : 'Dhruvi@2001',
-'HOST' : 'localhost',
+'NAME': 'd1m5nffbs1na35',
+'USER': 'rrzxhsreajgrks',
+'PASSWORD' : 'e191b2b5d65e95d1f4c069433caf3c05aa2fc7125596f91e9b58e5432c1f0e38',
+'HOST' : 'ec2-18-214-134-226.compute-1.amazonaws.com',
 'PORT' : '5432',
     }
 }
@@ -122,10 +123,13 @@ USE_I18N = False
 
 USE_TZ = False
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -161,3 +165,7 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": 10,
     },
 }
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
