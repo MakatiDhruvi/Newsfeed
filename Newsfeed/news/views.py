@@ -62,7 +62,6 @@ def bind_news_from_database(list_of_category):
 
 
 def home(request):
-    upload_news()
     data = []
     category = request.GET.get("category")
     if category == 'all':
